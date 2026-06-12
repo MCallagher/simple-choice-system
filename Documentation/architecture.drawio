@@ -1,0 +1,48 @@
+<mxfile host="65bd71144e" scale="2" border="0">
+    <diagram id="ZB96pLW2ss2tVP2Opfc4" name="Page-1">
+        <mxGraphModel dx="672" dy="1133" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
+            <root>
+                <mxCell id="0"/>
+                <mxCell id="1" parent="0"/>
+                <mxCell id="7" value="" style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+                    <mxGeometry x="40" y="40" width="540" height="140" as="geometry"/>
+                </mxCell>
+                <mxCell id="5" value="Has multiple" style="edgeStyle=none;html=1;" edge="1" parent="1" source="2" target="3">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="31" value="Choose an option once" style="edgeStyle=orthogonalEdgeStyle;html=1;dashed=1;" edge="1" parent="1" source="2" target="3">
+                    <mxGeometry relative="1" as="geometry">
+                        <mxPoint x="220" y="340" as="targetPoint"/>
+                        <Array as="points">
+                            <mxPoint x="130" y="160"/>
+                            <mxPoint x="290" y="160"/>
+                        </Array>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="2" value="Choice" style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+                    <mxGeometry x="60" y="60" width="100" height="60" as="geometry"/>
+                </mxCell>
+                <mxCell id="6" value="Has multiple" style="edgeStyle=none;html=1;" edge="1" parent="1" source="3" target="4">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="3" value="Option" style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+                    <mxGeometry x="260" y="60" width="100" height="60" as="geometry"/>
+                </mxCell>
+                <mxCell id="4" value="Consequence" style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+                    <mxGeometry x="460" y="60" width="100" height="60" as="geometry"/>
+                </mxCell>
+                <mxCell id="32" value="Get the option consequences" style="edgeStyle=orthogonalEdgeStyle;html=1;dashed=1;" edge="1" parent="1" source="3" target="4">
+                    <mxGeometry x="0.0024" relative="1" as="geometry">
+                        <mxPoint x="480" y="120" as="targetPoint"/>
+                        <mxPoint x="340" y="120" as="sourcePoint"/>
+                        <Array as="points">
+                            <mxPoint x="330" y="160"/>
+                            <mxPoint x="490" y="160"/>
+                        </Array>
+                        <mxPoint as="offset"/>
+                    </mxGeometry>
+                </mxCell>
+            </root>
+        </mxGraphModel>
+    </diagram>
+</mxfile>
