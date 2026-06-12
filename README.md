@@ -1,6 +1,6 @@
 
 ![Engine: Unity 6](https://img.shields.io/badge/Engine-Unity%206-000000)
-![Version: 1.0.0](https://img.shields.io/badge/Version-0.1.0-green)
+![Version: 0.1.0](https://img.shields.io/badge/Version-0.1.0-green)
 
 # Simple Choice System for Unity
 A simple choice system design to manage basic customiazations
