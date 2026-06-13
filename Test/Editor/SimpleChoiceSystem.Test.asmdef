@@ -1,10 +1,10 @@
 {
-    "name": "SimpleChoiceSyste.Test",
-    "rootNamespace": "SimpleChoiceSyste.Test",
+    "name": "SimpleChoiceSystem.Test",
+    "rootNamespace": "SimpleChoiceSystem.Test",
     "references": [
         "UnityEngine.TestRunner",
         "UnityEditor.TestRunner",
-        "SimpleChoiceSyste"
+        "SimpleChoiceSystem"
     ],
     "includePlatforms": [
         "Editor"
