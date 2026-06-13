@@ -81,6 +81,19 @@ namespace SimpleChoiceSystem.Test
         }
 
         [Test]
+        public void Choose_ThrowsWhenChosenMultipleTimes()
+        {
+            var optionA = new Option("A", new List<Consequence>());
+            var optionB = new Option("B", new List<Consequence>());
+            var choice = new Choice("Room 1", new List<Option> { optionA, optionB });
+
+            choice.Choose(0);
+
+            Assert.Throws<InvalidOperationException>(() => choice.Choose(1));
+            Assert.AreSame(optionA, choice.Decision);
+        }
+
+        [Test]
         public void Choose_ThrowsOnInvalidIndex()
         {
             var choice = new Choice("Room 2", new List<Option>());
