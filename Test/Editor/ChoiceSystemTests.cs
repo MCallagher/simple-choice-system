@@ -16,12 +16,10 @@ namespace SimpleChoiceSystem.Test
             };
 
             var consequence = new Consequence(
-                "Hit",
                 ConsequenceType.Damage,
                 ConsequenceTime.Immediate,
                 parameters);
 
-            Assert.AreEqual("Hit", consequence.Description);
             Assert.AreEqual(ConsequenceType.Damage, consequence.ConsequenceType);
             Assert.AreEqual(ConsequenceTime.Immediate, consequence.ConsequenceTime);
             Assert.IsTrue(consequence.HasOption("amount"));
@@ -34,7 +32,6 @@ namespace SimpleChoiceSystem.Test
         public void GetOption_ThrowsWhenKeyMissing()
         {
             var consequence = new Consequence(
-                "Mysterious",
                 ConsequenceType.Nothing,
                 ConsequenceTime.LongTerm,
                 null);
@@ -51,15 +48,15 @@ namespace SimpleChoiceSystem.Test
             var consequences = new List<Consequence>
             {
                 new Consequence(
-                    "Heal",
                     ConsequenceType.Heal,
                     ConsequenceTime.ShortTerm,
                     new Dictionary<string, object> { { "amount", 5 } })
             };
 
-            var option = new Option("Take the potion", consequences);
+            var option = new Option("Take the potion", "The potion heals you", consequences);
 
             Assert.AreEqual("Take the potion", option.Description);
+            Assert.AreEqual("The potion heals you", option.Effect);
             Assert.AreSame(consequences, option.Consequences);
             Assert.AreEqual(1, option.Consequences.Count);
             Assert.AreEqual(ConsequenceType.Heal, option.Consequences[0].ConsequenceType);
@@ -71,8 +68,8 @@ namespace SimpleChoiceSystem.Test
         [Test]
         public void Choose_ReturnsCorrectOption()
         {
-            var optionA = new Option("A", new List<Consequence>());
-            var optionB = new Option("B", new List<Consequence>());
+            var optionA = new Option("A", "E-A", new List<Consequence>());
+            var optionB = new Option("B", "E-B", new List<Consequence>());
             var choice = new Choice("Room 1", new List<Option> { optionA, optionB });
 
             Assert.AreEqual("Room 1", choice.Context);
@@ -83,8 +80,8 @@ namespace SimpleChoiceSystem.Test
         [Test]
         public void Choose_ThrowsWhenChosenMultipleTimes()
         {
-            var optionA = new Option("A", new List<Consequence>());
-            var optionB = new Option("B", new List<Consequence>());
+            var optionA = new Option("A", "E-A", new List<Consequence>());
+            var optionB = new Option("B", "E-B", new List<Consequence>());
             var choice = new Choice("Room 1", new List<Option> { optionA, optionB });
 
             choice.Choose(0);
@@ -107,8 +104,8 @@ namespace SimpleChoiceSystem.Test
         {
             var choice = new Choice("Test", new List<Option>
             {
-                new Option("First", new List<Consequence>()),
-                new Option("Second", new List<Consequence>())
+                new Option("First", "First Effect", new List<Consequence>()),
+                new Option("Second", "Second Effect", new List<Consequence>())
             });
 
             CollectionAssert.AreEqual(new[] { "First", "Second" }, choice.GetOptionDescriptions());

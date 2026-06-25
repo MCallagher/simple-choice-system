@@ -5,24 +5,19 @@ namespace SimpleChoiceSystem
 {
     public class Consequence
     {
-        private readonly string _description;
         private readonly ConsequenceType _consequenceType;
         private readonly ConsequenceTime _consequenceTime;
         private readonly Dictionary<string, object> _parameters;
 
         public Consequence(
-            string description,
             ConsequenceType consequenceType,
             ConsequenceTime consequenceTime,
             Dictionary<string, object> parameters=null)
         {
-            _description = description;
             _consequenceType = consequenceType;
             _consequenceTime = consequenceTime;
             _parameters = parameters ?? new Dictionary<string, object>();
         }
-
-        public string Description => _description;
 
         public ConsequenceType ConsequenceType => _consequenceType;
 

@@ -1,6 +1,6 @@
 {
   "name": "callagames.marco-calandro.simple-choice-system",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "description": "This package provide a framework to build a simple choice system. It provide the basic tools to have a working system but is open to extension.",
   "displayName": "Simple Choice System",
   "unity": "6000.0",
