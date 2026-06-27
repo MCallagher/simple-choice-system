@@ -9,9 +9,9 @@ namespace SimpleChoiceSystem.Test
         [Test]
         public void Constructor_CreatesValuesAndOptions()
         {
-            var parameters = new Dictionary<string, object>
+            var parameters = new Dictionary<string, string>
             {
-                { "amount", 10 },
+                { "amount", "10" },
                 { "reason", "broken" }
             };
 
@@ -23,8 +23,8 @@ namespace SimpleChoiceSystem.Test
             Assert.AreEqual(ConsequenceType.Damage, consequence.ConsequenceType);
             Assert.AreEqual(ConsequenceTime.Immediate, consequence.ConsequenceTime);
             Assert.IsTrue(consequence.HasOption("amount"));
-            Assert.AreEqual(10, consequence.GetOption<int>("amount"));
-            Assert.AreEqual("broken", consequence.GetOption<string>("reason"));
+            Assert.AreEqual("10", consequence.GetOption("amount"));
+            Assert.AreEqual("broken", consequence.GetOption("reason"));
             CollectionAssert.AreEquivalent(new[] { "amount", "reason" }, consequence.GetOptionKeys());
         }
 
@@ -36,7 +36,7 @@ namespace SimpleChoiceSystem.Test
                 ConsequenceTime.LongTerm,
                 null);
 
-            Assert.Throws<KeyNotFoundException>(() => consequence.GetOption<int>("missing"));
+            Assert.Throws<KeyNotFoundException>(() => consequence.GetOption("missing"));
         }
     }
 
@@ -50,7 +50,7 @@ namespace SimpleChoiceSystem.Test
                 new Consequence(
                     ConsequenceType.Heal,
                     ConsequenceTime.ShortTerm,
-                    new Dictionary<string, object> { { "amount", 5 } })
+                    new Dictionary<string, string> { { "amount", "5" } })
             };
 
             var option = new Option("Take the potion", "The potion heals you", consequences);

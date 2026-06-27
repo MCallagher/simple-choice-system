@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.Linq;
 
 namespace SimpleChoiceSystem
 {
@@ -7,16 +8,16 @@ namespace SimpleChoiceSystem
     {
         private readonly ConsequenceType _consequenceType;
         private readonly ConsequenceTime _consequenceTime;
-        private readonly Dictionary<string, object> _parameters;
+        private readonly Dictionary<string, string> _parameters;
 
         public Consequence(
             ConsequenceType consequenceType,
             ConsequenceTime consequenceTime,
-            Dictionary<string, object> parameters=null)
+            Dictionary<string, string> parameters=null)
         {
             _consequenceType = consequenceType;
             _consequenceTime = consequenceTime;
-            _parameters = parameters ?? new Dictionary<string, object>();
+            _parameters = parameters ?? new Dictionary<string, string>();
         }
 
         public ConsequenceType ConsequenceType => _consequenceType;
@@ -28,19 +29,14 @@ namespace SimpleChoiceSystem
             return _parameters.ContainsKey(key);
         }
 
-        public T GetOption<T>(string key)
+        public string GetOption(string key)
         {
-            if (_parameters.TryGetValue(key, out var value))
-            {
-                return (T)value;
-            }
-
-            throw new KeyNotFoundException($"Key '{key}' not found in consequence parameters.");
+            return _parameters[key];
         }
 
         public List<string> GetOptionKeys()
         {
-            return new List<string>(_parameters.Keys);
+            return _parameters.Keys.ToList();
         }
     }
 }
