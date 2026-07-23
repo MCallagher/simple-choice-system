@@ -17,11 +17,9 @@ namespace SimpleChoiceSystem.Test
 
             var consequence = new Consequence(
                 ConsequenceType.Damage,
-                ConsequenceTime.Immediate,
                 parameters);
 
             Assert.AreEqual(ConsequenceType.Damage, consequence.ConsequenceType);
-            Assert.AreEqual(ConsequenceTime.Immediate, consequence.ConsequenceTime);
             Assert.IsTrue(consequence.HasOption("amount"));
             Assert.AreEqual("10", consequence.GetOption("amount"));
             Assert.AreEqual("broken", consequence.GetOption("reason"));
@@ -33,7 +31,6 @@ namespace SimpleChoiceSystem.Test
         {
             var consequence = new Consequence(
                 ConsequenceType.Nothing,
-                ConsequenceTime.LongTerm,
                 null);
 
             Assert.Throws<KeyNotFoundException>(() => consequence.GetOption("missing"));
@@ -49,7 +46,6 @@ namespace SimpleChoiceSystem.Test
             {
                 new Consequence(
                     ConsequenceType.Heal,
-                    ConsequenceTime.ShortTerm,
                     new Dictionary<string, string> { { "amount", "5" } })
             };
 

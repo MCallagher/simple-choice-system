@@ -7,8 +7,7 @@ namespace SimpleChoiceSystem
         TeamDamage,
         TeamHeal,
         NextRoom,
-        GoodKarma,
-        BadKarma,
+        Karma,
         Nothing
     }
 }
